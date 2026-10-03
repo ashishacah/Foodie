@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             // final phonenumber = phonenumbercon.text.toString();
                             // final address = addresscon.text.toString();
                             // final profile = profilecon.text.toString();
-                            print("send data");
+                   
                             senddata();
                           },
                           child: Text("Sign Up"),

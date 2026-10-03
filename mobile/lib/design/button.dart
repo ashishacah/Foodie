@@ -17,7 +17,7 @@ class FieldDesign extends StatelessWidget {
           obscureText: hint.toLowerCase() == 'password',
  
           decoration: InputDecoration(
-            hint: Text("${hint}"),
+            hint: Text(hint),
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
           ),
         ),

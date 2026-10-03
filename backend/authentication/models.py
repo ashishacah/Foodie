@@ -7,7 +7,8 @@ class User(AbstractUser):
     address=models.CharField(max_length=100,blank=True,null=True)
     profile_image=models.CharField(max_length=100,blank=True,null=True)
 
-
+    USERNAME_FIELD="email"
+    REQUIRED_FIELDS=["username"]
     def __str__(self):
         return self.username
   
