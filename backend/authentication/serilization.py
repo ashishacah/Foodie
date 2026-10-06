@@ -10,6 +10,7 @@ class SignUpSeralization (serializers.ModelSerializer):
                 "username",
                 "email",
                 "password",
+                "role",
                 "phonenumber",
                 "address",
                 "profile_image"]
@@ -22,9 +23,11 @@ class SignUpSeralization (serializers.ModelSerializer):
                 username=validated_data["username"],
                 email=validated_data["email"],
                 password=validated_data["password"],
-                phonenumber=validated_data.get("phonenumber"),
+                role=validated_data.get("role",""),
+                phonenumber=validated_data.get("phonenumber",""),
                 address=validated_data.get("address",""),
                 profile_image=validated_data.get("profile_image",""),
+                
                   
 
     
@@ -51,8 +54,10 @@ class LoginSerialization(serializers.Serializer):
         refresh = RefreshToken.for_user(user)
 
         return {
+            "role":user.role,
             "email":user.email,
             "access":str(refresh.access_token),
             "refresh":str(refresh),
+            
         }
                         

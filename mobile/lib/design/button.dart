@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 class FieldDesign extends StatelessWidget {
   final TextEditingController conname;
   final String hint;
-
-  const FieldDesign({super.key, required this.conname, required this.hint});
+  final Icon? icon;
+  const FieldDesign({
+    super.key,
+    required this.conname,
+    required this.hint,
+    this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +20,9 @@ class FieldDesign extends StatelessWidget {
         child: TextField(
           controller: conname,
           obscureText: hint.toLowerCase() == 'password',
- 
+
           decoration: InputDecoration(
+            prefixIcon: icon,
             hint: Text(hint),
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
           ),

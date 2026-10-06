@@ -27,6 +27,7 @@ def login(request):
       return Response({
 
          "message":"Login Sucessfully",
+         "role":serializer.validated_data["role"],
          "email":serializer.validated_data["email"],
          "access":serializer.validated_data["access"],
          "refresh":serializer.validated_data["refresh"],},status=status.HTTP_200_OK)

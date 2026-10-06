@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/authentication/login.dart';
 import 'package:mobile/design/button.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Login(),
     );
   }
 }
@@ -36,6 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   var phonenumbercon = TextEditingController();
   var addresscon = TextEditingController();
   var profilecon = TextEditingController();
+  var role_con = TextEditingController();
   String responsemsg = "";
   @override
   Widget build(BuildContext context) {
@@ -70,6 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         FieldDesign(conname: usernamecon, hint: "username"),
                         FieldDesign(conname: emailcon, hint: "email"),
                         FieldDesign(conname: passwordcon, hint: "password"),
+                        FieldDesign(conname: role_con, hint: "role"),
                         FieldDesign(
                           conname: phonenumbercon,
                           hint: "phonenumber",
@@ -84,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             // final phonenumber = phonenumbercon.text.toString();
                             // final address = addresscon.text.toString();
                             // final profile = profilecon.text.toString();
-                   
+
                             senddata();
                           },
                           child: Text("Sign Up"),
@@ -119,6 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
         "username": usernamecon.text,
         "email": emailcon.text,
         "password": passwordcon.text,
+        "role": role_con.text,
         "phonenumber": phonenumbercon.text,
         "address": addresscon.text,
         "profile_image": profilecon.text,
